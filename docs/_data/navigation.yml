@@ -1,0 +1,14 @@
+# If you want to link only specific pages in your header, add the path to the
+# pages in order as they should show up.
+main:
+  - title: "归档"
+    url: /archives
+  - title: "标签"
+    url: /tags
+  - title: "关于"
+    url: /about
+  - title: "搜索"
+    url: javascript:void(0);
+  - title: "GitHub"
+    url: https://github.com/onblog
+    target: _black

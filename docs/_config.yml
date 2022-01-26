@@ -1,0 +1,90 @@
+# Welcome to Jekyll!
+#
+# This config file is meant for settings that affect your whole blog, values
+# which you are expected to set up once and rarely edit after that. If you find
+# yourself editing this file very often, consider using Jekyll's data files
+# feature for the data you need to update frequently.
+#
+# For technical reasons, this file is *NOT* reloaded automatically when you use
+# 'jekyll serve'. If you change this file, please restart the server process.
+
+# Site settings
+# These are used to personalize your new site. If you look in the HTML files,
+# you will see them accessed via {{ site.title }}, {{ site.author }}, and so on.
+# You can create any custom variable you would like, and they will be accessible
+# in the templates via {{ site.myvariable }}.
+title: 薛师兄的博客
+author: 薛师兄
+description: "✅本站是薛师兄的技术分享博客。内容涵盖生活故事、Java后端技术、Spring Boot、Spring Cloud、微服务架构、大数据演进、高可用架构、中间件使用、系统监控等相关的研究与知识分享。"
+baseurl: # the subpath of your site, e.g. /blog
+url: https://www.onblogs.net # the base hostname & protocol for your site, e.g. http://example.com
+lang: zh
+timezone: UTC
+future: true
+include:
+  - _posts
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - Rakefile
+  - README.md
+  - LICENSE.txt
+  - CHANGELOG.md
+  - jekyll-whiteglass.gemspec
+  - screenshot.png
+  - vendor
+filing:
+
+# static file
+favicon: /assets/img/favicon.ico
+css: /assets/main.css
+
+# Appreciating Your Boss
+reward_comment: # 坚持原创技术分享，您的支持将鼓励我继续创作！
+wechatpay: /assets/img/wechatpay.png
+
+# Wechat Subscriber
+wechat_subscriber:
+  enabled: false
+  qcode: /assets/img/wechat.png
+  description: "欢迎您扫一扫订阅我的微信公众号！"
+
+# Wechat ReadMore
+wechat_readmore:
+  enabled: false
+  token: 博客解锁
+  pd: 8763
+  vector: 1111 # pd - vector = password
+  qcode: /assets/img/wechat.png
+
+# Social media
+twitter_username:
+twitter_image:
+facebook_app_id:
+facebook_image:
+comments: false
+
+# Plugins
+plugins:
+  - jekyll-paginate
+  - jekyll-sitemap
+  - jekyll-feed
+  - jekyll-archives
+
+# Build settings
+markdown: kramdown
+excerpt_separator: "<!-- more -->"
+
+# Outputting
+permalink: /:year/:month/:day/:title/
+paginate_path: /posts/:num/
+paginate: 20
+
+# Markdown settings
+kramdown:
+  auto_ids: false
+  enable_coderay: false
+  entity_output: as_char
+  footnote_nr: 1
+  smart_quotes: lsquo,rsquo,ldquo,rdquo
+  toc_levels: 1..6

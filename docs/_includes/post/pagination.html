@@ -1,0 +1,89 @@
+<!-- 上一篇、下一篇 -->
+<div class="pagination">
+    <ul>
+        <!--  上个为空  -->
+        {% if page.previous.score == 'private' %}
+
+        <!--  上上个为空  -->
+        {% if page.previous.previous.score == 'private' %}
+
+        <!--   上上上一个     -->
+        {% if page.previous.previous.previous and page.previous.previous.previous.score != 'private' %}
+        <li class="prev"><a href="{{ BASE_PATH }}{{ page.previous.previous.previous.url }}"
+                            title="{{ page.previous.previous.previous.title }}">&laquo; {{
+            page.previous.previous.previous.title }}</a></li>
+        {% else %}
+        <li class="prev disabled"><a>&laquo; 上一篇</a></li>
+        {% endif %}
+
+        <!--  上上个不为空  -->
+        {% else %}
+
+        <!--   上上一个     -->
+        {% if page.previous.previous %}
+        <li class="prev"><a href="{{ BASE_PATH }}{{ page.previous.previous.url }}"
+                            title="{{ page.previous.previous.title }}">&laquo; {{ page.previous.previous.title }}</a>
+        </li>
+        {% else %}
+        <li class="prev disabled"><a>&laquo; 上一篇</a></li>
+        {% endif %}
+
+        {% endif %}
+
+        <!--  上个不为空  -->
+        {% else %}
+
+        <!--   上一个     -->
+        {% if page.previous %}
+        <li class="prev"><a href="{{ BASE_PATH }}{{ page.previous.url }}" title="{{ page.previous.title }}">&laquo; {{
+            page.previous.title }}</a></li>
+        {% else %}
+        <li class="prev disabled"><a>&laquo; 上一篇</a></li>
+        {% endif %}
+
+        {% endif %}
+
+
+
+        <!--  下个为空  -->
+        {% if page.next.score == 'private' %}
+
+        <!--  下下个为空  -->
+        {% if page.next.next.score == 'private' %}
+
+        <!--   下下下一个     -->
+        {% if page.next.next.next %}
+        <li class="next"><a href="{{ BASE_PATH }}{{ page.next.next.next.url }}" title="{{ page.next.next.next.title }}">{{
+            page.next.next.next.title }} &raquo;</a></li>
+        {% else %}
+        <li class="next disabled"><a>下一篇 &raquo;</a></li>
+        {% endif %}
+
+        <!--  下下个不为空  -->
+        {% else %}
+
+        <!--   下下一个     -->
+        {% if page.next.next %}
+        <li class="next"><a href="{{ BASE_PATH }}{{ page.next.next.url }}" title="{{ page.next.next.title }}">{{
+            page.next.next.title }} &raquo;</a></li>
+        {% else %}
+        <li class="next disabled"><a>下一篇 &raquo;</a></li>
+        {% endif %}
+
+        {% endif %}
+
+        <!--  下个不为空  -->
+        {% else %}
+
+        <!--    下一个      -->
+        {% if page.next %}
+        <li class="next"><a href="{{ BASE_PATH }}{{ page.next.url }}" title="{{ page.next.title }}">{{ page.next.title
+            }} &raquo;</a></li>
+        {% else %}
+        <li class="next disabled"><a>下一篇 &raquo;</a></li>
+        {% endif %}
+
+        {% endif %}
+
+    </ul>
+</div>

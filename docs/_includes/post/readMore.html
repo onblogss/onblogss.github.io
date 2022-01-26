@@ -1,0 +1,76 @@
+<!--阅读全文-->
+{% if site.wechat_readmore.enabled %}
+<style type="text/css">
+    .post-content {
+        display: none;
+    }
+</style>
+<script type="text/javascript">
+    const node = '.post-content';
+    const loginSiteKey = 'login_info';
+    const pd = parseInt('{{site.wechat_readmore.pd}}');
+    const vector = parseInt('{{site.wechat_readmore.vector}}');
+    const img = '{{site.wechat_readmore.qcode}}';
+    const token = '{{site.wechat_readmore.token}}';
+
+    $(document).ready(function () {
+        readMoreStart()
+    });
+
+    function readMoreStart() {
+        if (getCookie(loginSiteKey) && getCookie(loginSiteKey) !== "") {
+            // 展示文章
+            document.querySelector(node).style.display = 'block';
+            return
+        }
+        // 移除文章
+        document.querySelector(node).remove();
+        $('.post:eq(0)').append(`
+                <div style="width: 100%;text-align: center">
+                  <a id="readMore2" style="font-size: 16px;color: #03A9F4;" onclick="readMoreInput()" href="#">展开阅读全文</a>
+                </div>
+            `)
+    }
+
+    function readMoreInput() {
+        $('body').append(`
+              <div id="gzh" style="position: fixed;background: whitesmoke;align-content: center;text-align: center;width: 80%;height: 40%;padding: 5% 0;z-index: 9;left: 10%;bottom: 20%;">
+                 <p style="margin: 0;font-size: 16px;">扫码关注微信公众号回复<span style="color: red;">${token}</span>获取验证码</p>
+                 <input style="height: 20px" type="text" id="key"/>
+                 <input type="submit" style="font-size: 15px;border: 1px #BDBDBD solid;border-radius: 2px;background-color: #fff;" value="提交" onclick="loginApp()"/>
+                 <img src="${img}" style="display: block; margin: 10px auto;max-width: 180px;" alt=""/>
+              </div>
+        `)
+    }
+
+    function loginApp() {
+        const key = $('input[id=key]').val();
+        if ((pd - vector) === parseInt(key)) {
+            alert("解锁成功！")
+            setCookie(loginSiteKey, 'true', 7);
+            window.location.reload();
+        } else {
+            alert("验证码错误！")
+        }
+    }
+
+    function setCookie(cname, cvalue, exdays) {
+        const d = new Date();
+        d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+        const expires = "expires=" + d.toGMTString();
+        document.cookie = cname + "=" + cvalue + "; path=/; " + expires;
+    }
+
+    function getCookie(cname) {
+        const name = cname + "=";
+        const ca = document.cookie.split(';');
+        for (let i = 0; i < ca.length; i++) {
+            const c = ca[i].trim();
+            if (c.indexOf(name) === 0) {
+                return c.substring(name.length, c.length);
+            }
+        }
+        return "";
+    }
+</script>
+{% endif %}

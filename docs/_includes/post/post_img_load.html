@@ -1,0 +1,19 @@
+<!-- 解决_post文件夹相对路径图片无法加载问题 -->
+<script type="text/javascript">
+    const prefix = "//" + window.location.host + '/_posts'
+    const imgs = document.querySelectorAll(".post-content img")
+    for (let i = 0; i < imgs.length; i++) {
+        const img = imgs[i]
+        img.alt = '图片加载中..'
+        const href = window.location.protocol+'//'+window.location.host + window.location.pathname
+        if (img.src && img.src.startsWith(href)) {
+            // 图片相对路径
+            const src = img.src.substring(href.length)
+            // md文档所在文件夹（_post/???）
+            const number = Number(src.substring(0, 4))
+            if (!isNaN(number)) {
+                img.src = prefix + '/' + number + '/' + src
+            }
+        }
+    }
+</script>

@@ -1,0 +1,72 @@
+<!-- 文章检索 -->
+<div>
+<div id="search" style="
+    z-index: 9; width: 50%;
+    background-color: rgb(250, 250, 250);
+    margin: 0 auto;
+    position: absolute;
+    border: 2px solid #2196F3;
+    top: 56px; left: 23%;
+    display: none;
+    border-radius: 10px;
+    padding-right: 7px;
+    padding-left: 7px;
+">
+    <input type="text" id="search-input" placeholder="Search blog posts.." style="
+    color: #314659;
+    height: 32px;
+    font-family: cursive,sans-serif !important;
+    width: 100%;
+    border: none;
+    padding: 0;
+    float: left;
+    font-size: 16px;
+    font-weight: 300;
+    border-radius: 2px 0 0 2px;
+    outline: 0;
+    background-color: #fff;
+">
+    <ul id="results-container"></ul>
+</div>
+<style type="text/css">
+    .touMing {
+        filter: alpha(opacity=10);
+        -moz-opacity: 0.1;
+        opacity: 0.1;
+        background-color: #fff;
+    }
+
+    @media screen and (max-width: 800px) {
+        #search {
+            width: 90% !important;
+            left: 3% !important;
+        }
+    }
+</style>
+<script src="/assets/js/simple-jekyll-search.min.js"></script>
+<script type="text/javascript">
+    let s = document.querySelectorAll('a.page-link');
+    for (let i = 0; i < s.length; i++) {
+        const a = s[i];
+        if (a.innerText === '搜索') {
+            // 打开
+            a.addEventListener('click', function () {
+                document.getElementById('search').style.display = 'block';
+                document.getElementById('search-input').select();
+                document.getElementsByTagName('main')[0].classList.add("touMing")
+            })
+        }
+    }
+    // 关闭
+    document.getElementsByTagName('main')[0].addEventListener('click', () => {
+        document.getElementById('search').style.display = 'none';
+        document.getElementsByTagName('main')[0].classList.remove("touMing")
+    });
+    SimpleJekyllSearch({
+                                     searchInput: document.getElementById('search-input'),
+                                     resultsContainer: document.getElementById('results-container'),
+                                     json: '/search.json',
+                                     limit: 99
+                                 })
+</script>
+</div>
