@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 重写Spring的Beanutils使其仅拷贝非null的属性
+title: 重写Spring的BeanUtils使其仅拷贝非null的属性
 date: 2022-02-26 23:38:00
 author: 薛师兄
 tags:
@@ -9,7 +9,7 @@ tags:
 
 有时候，在更新某条数据的时候，我们会先从数据库中读取到这条数据，得到BeanA。前端会把更新的字段带过来，即参数BeanB，BeanB中仅含有部分变更的属性，为了不让BeanB中的空属性污染BeanA，可以逐行对BeanB的属性进行判空，但这种代码很枯燥，于是想到了使用Bean拷贝相关工具类。
 
-比如Spring自带的Beanutils工具类，但它会把BeanB中的属性完封不动的拷贝过去，所以需要对其代码进行些许改造。
+比如Spring自带的BeanUtils工具类，但它会把BeanB中的属性完封不动的拷贝过去，所以需要对其代码进行些许改造。
 
 代码如下，复制即可使用。
 
