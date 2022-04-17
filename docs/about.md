@@ -8,6 +8,6 @@ permalink: /about
 
 互联网从业者，编程爱好者。
 
-您可以通过微信联系我：
+您可以通过微信联系我，记得备注来意哦。
 
 <img src="https://user-images.githubusercontent.com/31175877/147384892-ca903071-8592-4105-b145-7be2bb1f2b95.png">
