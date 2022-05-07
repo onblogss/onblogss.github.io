@@ -17,7 +17,7 @@ title: 薛师兄的博客
 author: 薛师兄
 description: "✅本站是薛师兄的技术分享博客。内容涵盖生活故事、Java后端技术、Spring Boot、Spring Cloud、微服务架构、大数据演进、高可用架构、中间件使用、系统监控等相关的研究与知识分享。"
 baseurl: # the subpath of your site, e.g. /blog
-url: https://www.onblogs.net # the base hostname & protocol for your site, e.g. http://example.com
+url: https://onblogs.net # the base hostname & protocol for your site, e.g. http://example.com
 lang: zh
 timezone: UTC
 future: true
