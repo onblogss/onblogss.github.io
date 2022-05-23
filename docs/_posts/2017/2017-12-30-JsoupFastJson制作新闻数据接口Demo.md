@@ -12,7 +12,7 @@ tags:
 
 这个适合在服务端结合servlet来做接口：需要下载jsoup+fastjson两个包.
  
-Jsoup使用手册：[http://www.open-open.com/jsoup/selector-syntax.htm](http://www.open-open.com/jsoup/selector-syntax.htm) 
+Jsoup官网：[https://jsoup.org/](https://jsoup.org/) 
 
 fastJson使用手册：[https://www.w3cschool.cn/fastjson/fastjson-ex2.html](https://www.w3cschool.cn/fastjson/fastjson-ex2.html) 
 在这里我就不重复写了，看官方API最靠谱！
